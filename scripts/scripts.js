@@ -129,4 +129,6 @@ async function loadPage() {
 loadPage();
 
 const start = Date.now();
-while (Date.now() - start < 3000) { }
+while (Date.now() - start < 3000) {
+  /* empty loop to block the main thread for 3 seconds */
+}

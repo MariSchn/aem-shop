@@ -121,14 +121,12 @@ function loadDelayed() {
 }
 
 async function loadPage() {
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, 5000);
-  }); //! Remove this, it is only used for testing purposes
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
 }
 
 loadPage();
+
+const start = Date.now();
+while (Date.now() - start < 3000) { }

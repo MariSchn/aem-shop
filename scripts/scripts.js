@@ -116,7 +116,14 @@ async function loadEager(doc) {
     || Object.keys(getAllMetadata('audience')).length) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
-    await runEager(document, { audiences: AUDIENCES }, pluginContext);
+    await runEager(
+      document,
+      {
+        audiences: AUDIENCES,
+        prodHost: 'https://main--aem-shop--marischn.aem.page/',
+      },
+      pluginContext,
+    );
   }
 
   document.documentElement.lang = 'en';
@@ -161,7 +168,14 @@ async function loadLazy(doc) {
     || Object.keys(getAllMetadata('audience')).length)) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
-    await runLazy(document, { audiences: AUDIENCES }, pluginContext);
+    await runLazy(
+      document,
+      {
+        audiences: AUDIENCES,
+        prodHost: 'https://main--aem-shop--marischn.aem.page/',
+      },
+      pluginContext,
+    );
   }
 }
 

@@ -17,12 +17,15 @@ import {
   toClassName,
   sampleRUM,
 } from './aem.js';
+import initExperiment from './abtesting-OwaA.js';
 
 const AUDIENCES = {
   mobile: () => window.innerWidth < 600,
   desktop: () => window.innerWidth >= 600,
   // define your custom audiences here as needed
 };
+
+initExperiment();
 
 /**
  * Gets all the metadata elements that are in the given scope.
